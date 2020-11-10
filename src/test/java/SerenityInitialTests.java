@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 @RunWith(SerenityRunner.class)
 public class SerenityInitialTests {
 
-    private static final String restApiUrl = "http://localhost:5000/api";
+    private static final String restApiUrl = "https://reqres.in/api";
 
     @Test
     public void initialTest() {
