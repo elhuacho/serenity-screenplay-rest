@@ -1,3 +1,4 @@
+import facts.NetflixPlans;
 import models.users.Datum;
 import models.users.RegisterUserInfo;
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -18,6 +19,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 public class SerenityInitialTests {
 
     private static final String restApiUrl = "https://reqres.in/api";
+//    private static final String restApiUrl = "http://localhost:5000/api";
 
     @Test
     public void initialTest() {
@@ -75,5 +77,11 @@ public class SerenityInitialTests {
         walter.should(
                 seeThat("el código de respuesta", ResponseCode.was(), equalTo(200))
         );
+    }
+
+    public void factTest() {
+        Actor walter = Actor.named("Walter").whoCan(CallAnApi.at(restApiUrl));
+
+        walter.has(NetflixPlans.toViewSeries());
     }
 }
